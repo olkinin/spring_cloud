@@ -1,0 +1,23 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: config_server
+  profiles:
+    active: composite
+  cloud:
+    config:
+      server:
+        composite:
+        - type: native
+          search-locations: file:config
+        bootstrap: true
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+
+logging:
+  level:
+    com.netflix.eureka: OFF
+    discovery: OFF
